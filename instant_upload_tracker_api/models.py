@@ -5,7 +5,6 @@ from django.db import models
 
 class IuPerfTracker(models.Model):
 
-    id = models.IntegerField(primary_key=True),
     vender_id = models.IntegerField(verbose_name="厂商id")
     device_id = models.IntegerField(verbose_name="设备id")
     serial = models.CharField(max_length=255, verbose_name="设备串号")
@@ -26,13 +25,12 @@ class IuPerfTracker(models.Model):
 
 class IuBugTracker(models.Model):
 
-    id = models.IntegerField(primary_key=True)
     vender_id = models.IntegerField(verbose_name="厂商id")
     device_id = models.IntegerField(verbose_name="设备id")
     serial = models.CharField(max_length=255, verbose_name="设备串号")
     android_device_unique_id = models.CharField(max_length=255, verbose_name="安卓设备唯一编号")
     android_user_unique_id = models.IntegerField(verbose_name="使用用户的唯一id编号")
-    android_device_info = models.IntegerField(verbose_name="Build.BRAND + Build.DEVICE + Build.MODEL")
+    android_device_info = models.CharField(max_length=255, verbose_name="Build.BRAND + Build.DEVICE + Build.MODEL")
     android_os_ver = models.IntegerField(verbose_name="操作系统版本")
     lib_version = models.IntegerField(verbose_name="所使用的库的版本")
     sync_trigger_mode = models.IntegerField(verbose_name="所使用的同步触发模式", null=True)
@@ -45,13 +43,12 @@ class IuBugTracker(models.Model):
 
 class IuDeviceInfoTracker(models.Model):
 
-    id = models.IntegerField(primary_key=True)
     vender_id = models.IntegerField(verbose_name="厂商id")
     device_id = models.IntegerField(verbose_name="设备id")
     serial = models.CharField(max_length=255, verbose_name="设备串号")
     android_device_unique_id = models.CharField(max_length=255, verbose_name="安卓设备唯一编号")
     android_user_unique_id = models.IntegerField(verbose_name="使用用户的唯一id编号")
-    android_device_info = models.IntegerField(verbose_name="Build.BRAND + Build.DEVICE + Build.MODEL")
+    android_device_info = models.CharField(max_length=255, verbose_name="Build.BRAND + Build.DEVICE + Build.MODEL")
     android_os_ver = models.IntegerField(verbose_name="操作系统版本")
     lib_version = models.IntegerField(verbose_name="所使用的库的版本")
     device_info = models.TextField(verbose_name="设备信息")

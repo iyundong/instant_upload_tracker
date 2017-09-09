@@ -27,6 +27,6 @@ class IuBugTrackerSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 class IuBugTrackerViewSet(viewsets.ModelViewSet):
-    queryset = IuDeviceInfoTracker.objects.all()
-    serializer_class = IuDeviceInfoTrackerSerializer
+    queryset = IuBugTracker.objects.all()
+    serializer_class = IuBugTrackerSerializer
 
